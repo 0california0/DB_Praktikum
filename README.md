@@ -1,4 +1,5 @@
-# docker_dings_da
+# DB_Praktikum
+
 readme datei für das praktikum
 
 hier passieren sachen
