@@ -1,49 +1,25 @@
 # DB_Praktikum
 
-readme datei für das praktikum
-
-hier passieren sachen
-
-
 ## docker starten und log-Datei erstellen
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-C:\Users\Brygida>cd "C:\Users\Brygida\Documents\docker\praktikum_2"
->
+cd "C:\Users\Brygida\Documents\docker\praktikum_ "
+
 C:\Users\Brygida\Documents\docker\praktikum_2>wsl
->
+
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker/praktikum_2$ docker
->
+
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker/praktikum_2$ docker run --rm -v $(pwd)/script.sql:/script.sql -e SQL_FILE=/script.sql bsalgert/postgres:v1 > result.log
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
-C:\Users\Brygida>cd C:\Users\Brygida\Documents\docker
-
-C:\Users\Brygida\Documents\docker>docker
-
 C:\Users\Brygida\Documents\docker>wsl
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ docker
-
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ sudo docker run -it --rm bsalgert/postgres:v1
-localhost:5432 - accepting connections
-Database is ready!
-Use \q to exit
-Example: SELECT * FROM Movies;
-psql (18.0 (Debian 18.0-1.pgdg13+3))
-Type "help" for help.
-
-nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ ls
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ docker run --rm -v $(pwd)/script.sql:/script.sql -e SQL_FILE=/script.sql bsalgert/postgres:v1 > result.log
 permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ sudo docker run --rm -v $(pwd)/script.sql:/script.sql -e SQL_FILE=/script.sql bsalgert/postgres:v1 > result.log
-[sudo] password for nevio:
-psql:/script.sql: error: could not read from input file: Is a directory
-nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ sudo docker run --rm -v $(pwd)/script.sql:/script.sql -e SQ
-L_FILE=/script.sql bsalgert/postgres:v1 > result.log
 nevio@DESKTOP-U5HVH5T:/mnt/c/Users/Brygida/Documents/docker$ sudo docker run -d --name mydb bsalgert/postgres:v1 /demon.
 sh
 c5bf3d3ccc5cd14f2e0ce1f491b915324cd72fecf79e2ceca6f542dd6d681810
