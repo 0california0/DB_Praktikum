@@ -1,0 +1,253 @@
+localhost:5432 - no response
+localhost:5432 - no response
+localhost:5432 - no response
+localhost:5432 - no response
+localhost:5432 - accepting connections
+Database is ready!
+Use \q to exit
+Example: SELECT * FROM Movies;
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- test und reference Abfrage
+
+SELECT * FROM Movies;
+ movie_id |                        title                        | releasedate | genre_id |  budget   | openingweek |  profit   | runtime | certificate | sequelof |        distribution        
+----------+-----------------------------------------------------+-------------+----------+-----------+-------------+-----------+---------+-------------+----------+----------------------------
+        1 | Avatar - Aufbruch nach Pandora                      | 2009-12-17  |        1 | 237000000 |    77025481 | 760505847 |     162 |          12 |          | 20th Century Fox
+        2 | Titanic                                             | 1997-12-14  |        2 | 200000000 |    28638131 | 658672302 |     194 |          12 |          | Paramount Pictures
+        3 | Star Wars: Das Erwachen der Macht                   | 2015-12-14  |        1 | 245000000 |   247966675 | 936627416 |     136 |          12 |          | Walt Disney Studios
+        4 | Jurassic World                                      | 2015-12-14  |        1 | 150000000 |   204600000 | 652177271 |     124 |          12 |          | Universal Studios
+        5 | The Avengers                                        | 2012-04-11  |        3 | 220000000 |   207438708 | 623279547 |     143 |          12 |          | Walt Disney Studios
+        6 | Fast & Furios 7                                     | 2016-03-15  |        4 | 190000000 |   147187040 | 350034110 |     137 |          12 |          | Universal Studios
+        7 | Avengers: Age of Ultron                             | 2015-04-13  |        3 | 250000000 |   191271109 | 458991599 |     141 |          12 |        5 | Walt Disney Studios
+        8 | Harry Potter und die Heiligtümer des Todes – Teil 2 | 2011-07-11  |        5 | 125000000 |   169189427 | 380955619 |     130 |          12 |          | Warner Bros. Entertainment
+        9 | Die Eiskönigin – Völlig unverfroren                 | 2011-10-11  |        6 | 150000000 |    67391326 | 400736600 |     102 |           0 |          | Walt Disney Studios
+       10 | Die Schöne und das Biest                            | 2017-03-17  |        5 | 160000000 |   174750616 | 503974884 |     129 |           6 |          | Walt Disney Studios
+       11 | Fast & Furious 8                                    | 2017-04-04  |        4 | 250000000 |    98786705 | 225697400 |     136 |          12 |        6 | Universal Studios
+       12 | Iron Man 3                                          | 2013-04-12  |        4 | 200000000 |   174144585 | 408992272 |     130 |          12 |          | Walt Disney Studios
+       13 | Minions                                             | 2015-06-11  |        4 |  74000000 |   115200000 | 336029560 |      91 |           0 |          | Universal Studios
+       14 | The First Avenger: Civil War                        | 2016-04-28  |        3 | 250000000 |   179139142 | 408080554 |     147 |          12 |          | Walt Disney Studios
+       15 | Transformers 3 – Die dunkle Seite des Mondes        | 2011-06-29  |        3 | 195000000 |   115886050 | 352358779 |     154 |          12 |          | Paramount Pictures
+       16 | Der Herr der Ringe: Die Rückkehr des Königs         | 2003-12-17  |        5 |  94000000 |    72629713 | 377019252 |     201 |          12 |          | New Line Cinema
+       17 | James Bond 007: Skyfall                             | 2012-11-01  |        4 | 200000000 |    88364714 | 304360277 |     143 |          12 |          | Metro-Goldwyn-Mayer
+       18 | Transformers: Ära des Untergangs                    | 2014-07-17  |        3 | 210000000 |   100038390 | 245428137 |     165 |          12 |       15 | Paramount Pictures
+       19 | The Dark Knight Rises                               | 2012-07-26  |        3 | 250000000 |   160887295 | 448130642 |     164 |          12 |          | Warner Bros. Entertainment
+       20 | Toy Story 3                                         | 2010-07-29  |        6 | 200000000 |   109000000 | 414984497 |     103 |           0 |          | Walt Disney Studios
+(20 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 1 - Erstellen Sie eine Abfrage, um alle Daten der Tabelle Movies anzuzeigen. Trennen Sie die Spalten durch ein Komma voneinander. Nennen Sie die Spalte CSV_OUTPUT. Nutzen Sie dafür die String-Verkettung.
+
+SELECT movie_id || ',' || title || ',' || releasedate || ',' || genre_id || ',' || budget || ',' || openingweek || ',' || profit || ',' || runtime || ',' ||  certificate || ',' ||  sequelof || ',' ||  distribution AS "CSV_OUTPUT" FROM Movies;
+                                                 CSV_OUTPUT                                                  
+-------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 7,Avengers: Age of Ultron,2015-04-13,3,250000000,191271109,458991599,141,12,5,Walt Disney Studios
+ 
+ 
+ 
+ 11,Fast & Furious 8,2017-04-04,4,250000000,98786705,225697400,136,12,6,Universal Studios
+ 
+ 
+ 
+ 
+ 
+ 
+ 18,Transformers: Ära des Untergangs,2014-07-17,3,210000000,100038390,245428137,165,12,15,Paramount Pictures
+ 
+ 
+(20 rows)
+
+-- 'sequelof' hat dafür gesorgt, dass nicht alle Zeilen angezeigt wurden, also habe ich es hier rausgenommen  
+SELECT movie_id || ',' || title || ',' || releasedate || ',' || genre_id || ',' || budget || ',' || openingweek || ',' || profit || ',' || runtime || ',' ||  certificate || ',' ||  distribution AS "CSV_OUTPUT" FROM Movies;
+                                                             CSV_OUTPUT                                                             
+------------------------------------------------------------------------------------------------------------------------------------
+ 1,Avatar - Aufbruch nach Pandora,2009-12-17,1,237000000,77025481,760505847,162,12,20th Century Fox
+ 2,Titanic,1997-12-14,2,200000000,28638131,658672302,194,12,Paramount Pictures
+ 3,Star Wars: Das Erwachen der Macht,2015-12-14,1,245000000,247966675,936627416,136,12,Walt Disney Studios
+ 4,Jurassic World,2015-12-14,1,150000000,204600000,652177271,124,12,Universal Studios
+ 5,The Avengers,2012-04-11,3,220000000,207438708,623279547,143,12,Walt Disney Studios
+ 6,Fast & Furios 7,2016-03-15,4,190000000,147187040,350034110,137,12,Universal Studios
+ 7,Avengers: Age of Ultron,2015-04-13,3,250000000,191271109,458991599,141,12,Walt Disney Studios
+ 8,Harry Potter und die Heiligtümer des Todes – Teil 2,2011-07-11,5,125000000,169189427,380955619,130,12,Warner Bros. Entertainment
+ 9,Die Eiskönigin – Völlig unverfroren,2011-10-11,6,150000000,67391326,400736600,102,0,Walt Disney Studios
+ 10,Die Schöne und das Biest,2017-03-17,5,160000000,174750616,503974884,129,6,Walt Disney Studios
+ 11,Fast & Furious 8,2017-04-04,4,250000000,98786705,225697400,136,12,Universal Studios
+ 12,Iron Man 3,2013-04-12,4,200000000,174144585,408992272,130,12,Walt Disney Studios
+ 13,Minions,2015-06-11,4,74000000,115200000,336029560,91,0,Universal Studios
+ 14,The First Avenger: Civil War,2016-04-28,3,250000000,179139142,408080554,147,12,Walt Disney Studios
+ 15,Transformers 3 – Die dunkle Seite des Mondes,2011-06-29,3,195000000,115886050,352358779,154,12,Paramount Pictures
+ 16,Der Herr der Ringe: Die Rückkehr des Königs,2003-12-17,5,94000000,72629713,377019252,201,12,New Line Cinema
+ 17,James Bond 007: Skyfall,2012-11-01,4,200000000,88364714,304360277,143,12,Metro-Goldwyn-Mayer
+ 18,Transformers: Ära des Untergangs,2014-07-17,3,210000000,100038390,245428137,165,12,Paramount Pictures
+ 19,The Dark Knight Rises,2012-07-26,3,250000000,160887295,448130642,164,12,Warner Bros. Entertainment
+ 20,Toy Story 3,2010-07-29,6,200000000,109000000,414984497,103,0,Walt Disney Studios
+(20 rows)
+
+-- better version
+SELECT CONCAT_WS(',', movie_id ,title ,releasedate ,genre_id ,budget ,openingweek ,profit ,runtime ,certificate ,sequelof ,distribution ) AS "CSV_OUTPUT" FROM Movies;
+                                                             CSV_OUTPUT                                                             
+------------------------------------------------------------------------------------------------------------------------------------
+ 1,Avatar - Aufbruch nach Pandora,2009-12-17,1,237000000,77025481,760505847,162,12,20th Century Fox
+ 2,Titanic,1997-12-14,2,200000000,28638131,658672302,194,12,Paramount Pictures
+ 3,Star Wars: Das Erwachen der Macht,2015-12-14,1,245000000,247966675,936627416,136,12,Walt Disney Studios
+ 4,Jurassic World,2015-12-14,1,150000000,204600000,652177271,124,12,Universal Studios
+ 5,The Avengers,2012-04-11,3,220000000,207438708,623279547,143,12,Walt Disney Studios
+ 6,Fast & Furios 7,2016-03-15,4,190000000,147187040,350034110,137,12,Universal Studios
+ 7,Avengers: Age of Ultron,2015-04-13,3,250000000,191271109,458991599,141,12,5,Walt Disney Studios
+ 8,Harry Potter und die Heiligtümer des Todes – Teil 2,2011-07-11,5,125000000,169189427,380955619,130,12,Warner Bros. Entertainment
+ 9,Die Eiskönigin – Völlig unverfroren,2011-10-11,6,150000000,67391326,400736600,102,0,Walt Disney Studios
+ 10,Die Schöne und das Biest,2017-03-17,5,160000000,174750616,503974884,129,6,Walt Disney Studios
+ 11,Fast & Furious 8,2017-04-04,4,250000000,98786705,225697400,136,12,6,Universal Studios
+ 12,Iron Man 3,2013-04-12,4,200000000,174144585,408992272,130,12,Walt Disney Studios
+ 13,Minions,2015-06-11,4,74000000,115200000,336029560,91,0,Universal Studios
+ 14,The First Avenger: Civil War,2016-04-28,3,250000000,179139142,408080554,147,12,Walt Disney Studios
+ 15,Transformers 3 – Die dunkle Seite des Mondes,2011-06-29,3,195000000,115886050,352358779,154,12,Paramount Pictures
+ 16,Der Herr der Ringe: Die Rückkehr des Königs,2003-12-17,5,94000000,72629713,377019252,201,12,New Line Cinema
+ 17,James Bond 007: Skyfall,2012-11-01,4,200000000,88364714,304360277,143,12,Metro-Goldwyn-Mayer
+ 18,Transformers: Ära des Untergangs,2014-07-17,3,210000000,100038390,245428137,165,12,15,Paramount Pictures
+ 19,The Dark Knight Rises,2012-07-26,3,250000000,160887295,448130642,164,12,Warner Bros. Entertainment
+ 20,Toy Story 3,2010-07-29,6,200000000,109000000,414984497,103,0,Walt Disney Studios
+(20 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 2a - Zeigen Sie Titel und Genre_ID aller Filme der Genre_IDs 1 und 3 in alphabetischer Reihenfolge nach Titel an.
+
+SELECT title, genre_id FROM Movies WHERE genre_id IN (1, 3) ORDER BY title ASC;
+                    title                     | genre_id 
+----------------------------------------------+----------
+ Avatar - Aufbruch nach Pandora               |        1
+ Avengers: Age of Ultron                      |        3
+ Jurassic World                               |        1
+ Star Wars: Das Erwachen der Macht            |        1
+ The Avengers                                 |        3
+ The Dark Knight Rises                        |        3
+ The First Avenger: Civil War                 |        3
+ Transformers 3 – Die dunkle Seite des Mondes |        3
+ Transformers: Ära des Untergangs             |        3
+(9 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 2b - Modifizieren Sie Ihre Anweisung derart, dass die Anzahl der Filme jeder Genre_ID ausgegeben wird. Benennen Sie die Spalten in GENRE_ID und ANZAHL um.
+
+SELECT genre_id, COUNT(title) AS Anzahl FROM Movies GROUP BY genre_id;
+ genre_id | anzahl 
+----------+--------
+        3 |      6
+        1 |      3
+        4 |      5
+        6 |      2
+        2 |      1
+        5 |      3
+(6 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 3a - Schreiben Sie eine Abfrage, um die Anzahl der Filme anzuzeigen. Benennen Sie die Ausgabespalte in ANZAHL um.
+
+SELECT COUNT(title) AS Anzahl FROM Movies;
+ anzahl 
+--------
+     20
+(1 row)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 3b - Schreiben Sie eine Abfrage um den Gesamtgewinn pro Filmverleih anzugeben. Geben Sie den Betrag in Milliarden Dollar aus.
+
+SELECT distribution, ROUND(SUM(profit) / 1000000000, 3) || ' Mrd.' AS "Gesamtgewinn in Milliarden" FROM Movies GROUP BY distribution;
+        distribution        | Gesamtgewinn in Milliarden 
+----------------------------+----------------------------
+ Paramount Pictures         | 1.256 Mrd.
+ Warner Bros. Entertainment | 0.829 Mrd.
+ New Line Cinema            | 0.377 Mrd.
+ Metro-Goldwyn-Mayer        | 0.304 Mrd.
+ Universal Studios          | 1.564 Mrd.
+ Walt Disney Studios        | 4.156 Mrd.
+ 20th Century Fox           | 0.761 Mrd.
+(7 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 4a - Erstellen Sie eine Abfrage um pro Jahr anzuzeigen wie viele Filme in diesem Jahr erschienen sind. Geben Sie für jedes Jahr auch das Gesamteinspielergebnis und das durchschnittlich Einspielergebnis an.
+-- Benennen Sie die Spalten mit JAHR, ANZAHL, GESAMT und DURCHSCHNITT.
+
+SELECT EXTRACT(YEAR FROM releasedate) AS "Jahr", COUNT(title) AS "Anzahl Filme", ROUND(SUM(profit) / 1000000, 2) || ' Mil.' AS "Gesamteinspielergebnis", ROUND(AVG(profit) / 1000000, 2) || ' Mil.' AS "Durchschnittliches Einspielergebnis" FROM Movies GROUP BY EXTRACT(YEAR FROM releasedate) ORDER BY "Jahr";
+ Jahr | Anzahl Filme | Gesamteinspielergebnis | Durchschnittliches Einspielergebnis 
+------+--------------+------------------------+-------------------------------------
+ 1997 |            1 | 658.67 Mil.            | 658.67 Mil.
+ 2003 |            1 | 377.02 Mil.            | 377.02 Mil.
+ 2009 |            1 | 760.51 Mil.            | 760.51 Mil.
+ 2010 |            1 | 414.98 Mil.            | 414.98 Mil.
+ 2011 |            3 | 1134.05 Mil.           | 378.02 Mil.
+ 2012 |            3 | 1375.77 Mil.           | 458.59 Mil.
+ 2013 |            1 | 408.99 Mil.            | 408.99 Mil.
+ 2014 |            1 | 245.43 Mil.            | 245.43 Mil.
+ 2015 |            4 | 2383.83 Mil.           | 595.96 Mil.
+ 2016 |            2 | 758.11 Mil.            | 379.06 Mil.
+ 2017 |            2 | 729.67 Mil.            | 364.84 Mil.
+(11 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 4b - Modifizieren Sie Ihre Abfrage aus 4a in derart, dass nur noch Jahre angezeigt werden in denen mindestens zwei Filme erschienen sind.
+
+SELECT EXTRACT(YEAR FROM releasedate) AS "Jahr", COUNT(title) AS "Anzahl Filme", ROUND(SUM(profit) / 1000000, 2) || ' Mil.' AS "Gesamteinspielergebnis", ROUND(AVG(profit) / 1000000, 2) || ' Mil.' AS "Durchschnittliches Einspielergebnis" FROM Movies GROUP BY EXTRACT(YEAR FROM releasedate) HAVING COUNT(title) > 1 ORDER BY "Jahr";
+ Jahr | Anzahl Filme | Gesamteinspielergebnis | Durchschnittliches Einspielergebnis 
+------+--------------+------------------------+-------------------------------------
+ 2011 |            3 | 1134.05 Mil.           | 378.02 Mil.
+ 2012 |            3 | 1375.77 Mil.           | 458.59 Mil.
+ 2015 |            4 | 2383.83 Mil.           | 595.96 Mil.
+ 2016 |            2 | 758.11 Mil.            | 379.06 Mil.
+ 2017 |            2 | 729.67 Mil.            | 364.84 Mil.
+(5 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 5 - Geben Sie für jeden Anfangsbuchstaben eines Films an, wie viele Filme mit diesem Anfangsbuchstaben gedreht wurden.
+
+SELECT LEFT(title, 1) AS "Anfangsbuchstabe", COUNT(title) AS "Anzahl Filme" FROM Movies GROUP BY LEFT(title, 1) ORDER BY "Anfangsbuchstabe";
+ Anfangsbuchstabe | Anzahl Filme 
+------------------+--------------
+ A                |            2
+ D                |            3
+ F                |            2
+ H                |            1
+ I                |            1
+ J                |            2
+ M                |            1
+ S                |            1
+ T                |            7
+(9 rows)
+
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 6 - Erstellen Sie eine Abfrage, welche in einem Tupel die gesamte Anzahl der Filme anzeigt und wie viele dieser Filme jeweils 2014, 2015, 2016 und 2017 veröffentlicht wurden. Weisen Sie entsprechende 
+-- Spaltenüberschriften zu. Erklären Sie Ihren Lösungsweg als SQLKommentar in der Log-Datei!
+
+SELECT 
+    COUNT(*) AS Anzahl,
+    SUM(CASE WHEN TO_CHAR(releasedate, 'YYYY'), = "2015" THEN 1 END) AS "2015",
+    SUM(CASE WHEN TO_CHAR(releasedate, 'YYYY'), = "2016" THEN 1 END) AS "2016",
+    SUM(CASE WHEN TO_CHAR(releasedate, 'YYYY'), = "2014" THEN 1 END) AS "2014",
+    SUM(CASE WHEN TO_CHAR(releasedate, 'YYYY'), = "2017" THEN 1 END) AS "2017" 
+FROM Movies;
+
+--  ________________________________________________________________________________________________________________________________________________________________________________________________________________
+-- *    Erklärung:                                                                                                                                                                                                  *
+-- *    1. als erstes werden alle Filme im COUNT in 'Anzahl Fimle' gespeichert                                                                                                                                       *
+-- *    2. für jedes Jahr wird dann eine eigene Abfrage erstellt, welche alle Filme für dieses Jahr sammelt                                                                                                         *
+-- *    3. mit EXTRACT kann man das gesuchte Jahr rausfiltern                                                                                                                                                       *
+-- *________________________________________________________________________________________________________________________________________________________________________________________________________________*
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Aufgabe 7 - Erstellen Sie aus der Ausführung Ihrer SQL-Datei eine LOG-Datei.
+
+-- Fertig lol
